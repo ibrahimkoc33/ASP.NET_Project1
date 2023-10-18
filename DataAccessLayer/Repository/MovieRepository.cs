@@ -12,36 +12,36 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repository
 {
-    public class FilmRepository : IFilm
+    public class MovieRepository : IMovie
     {
-        public void Add(Film film)
+        public void Add(Movie film)
         {
             using var c=new Context();
             c.Add(film);
             c.SaveChanges();
         }
 
-        public void Delete(Film film)
+        public void Delete(Movie film)
         {
             using var c = new Context();
             c.Remove(film);
             c.SaveChanges();
 
         }
-        public void Update(Film film)
+        public void Update(Movie film)
         {
             using var c = new Context();
             c.Update(film);
             c.SaveChanges();
 
         }
-        public Film GetById(int id)
+        public Movie GetById(int id)
         {
             using var c = new Context();
             return c.Films.Find(id);
         }
 
-        public List<Film> ListAll()
+        public List<Movie> ListAll()
         {
             using var c = new Context();
             return c.Films.ToList();
