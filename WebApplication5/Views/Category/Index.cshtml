@@ -6,11 +6,15 @@
 }
 
 <h1>Index</h1>
-<table>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<table class="table table-bordered">
     <tr>
         <th>Id</th>
         <th>Kategori Adı</th>
-        <th>Durumu</th>
         <th>Detaylar</th>
         <th>Sil</th>
     </tr>
@@ -19,6 +23,8 @@
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
+            <td><a href="#" class="btn btn-warning">Detaylar</a></td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
 
         </tr>
     }
