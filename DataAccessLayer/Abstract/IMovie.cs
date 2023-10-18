@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IFilm:IGeneric<Film>
+    public interface IMovie:IGeneric<Movie>
     {
     }
 }

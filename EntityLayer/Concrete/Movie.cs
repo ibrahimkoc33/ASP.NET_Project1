@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Film:BaseEntity<int>
+    public class Movie:BaseEntity<int>
     {
 
         public string Name { get; set; }
@@ -22,7 +22,7 @@ namespace EntityLayer.Concrete
 
         public DateOnly Date { get; set; }
 
-        public Rewiew FilmRewiew { get; set; }
+        public Rewiew MovieRewiew { get; set; }
 
         public int CategoryId { get; set; }
 
