@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication5.Controllers
 {
-    public class MovieController:Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
+	public class MovieController : Controller
+	{
+		MovieManager cm = new MovieManager(new EFMovieRepository());
+		public IActionResult Index()
+		{
+			var values = cm.ListAll();
+			return View(values);
+		}
+	}
 }

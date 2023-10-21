@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfMovieRepository : GenericRepository<Movie>, IMovie
+    public class EFMovieRepository : GenericRepository<Movie>, IMovie
     {
     }
 }
