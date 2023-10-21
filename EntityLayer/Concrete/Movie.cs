@@ -20,6 +20,10 @@ namespace EntityLayer.Concrete
 
         public string Cast { get; set; } // liste olucak düzelt
 
+        public string Image { get; set; }
+
+        public float Star { get; set; }
+
         public DateOnly Date { get; set; }
 
         public int? RewiewId { get; set; }

@@ -1,8 +1,56 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Movie>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/MovieLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>MovieSayfası</h1>
+<br />
+<!-- <table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Director</td>
+        <td>Scenerist</td>
+        <td>Cast</td>
+        <td>Date</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Director</td>
+            <td>@item.Scenarist</td>
+            <td>@item.Cast</td>
+            <td>@item.Date</td>
+        </tr>
+    }
+</table>-->
+
+<div class="slider movie-items">
+	
+	<div class="container">
+			<div class="row">
+            <div class="slick-multiItemSlider">
+                @foreach (var item in Model)
+                {
+					<div class="movie-item">
+						<div class="mv-img">
+							<a href="#"><img src="@item.Image" alt="" width="285" height="437"></a>
+						</div>
+						<div class="title-in">
+							<div class="cate">
+								<span class="blue"><a href="#">@item.Genre</a></span>
+							</div>
+							<h6><a href="#">@item.Name</a></h6>
+							<p><i class="ion-android-star"></i><span>@item.Star</span> /10</p>
+						</div>
+					</div>
+			    }
+				</div>
+			</div>
+		</div>
+	</div>
 
