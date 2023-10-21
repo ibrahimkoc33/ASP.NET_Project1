@@ -72,7 +72,7 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("CreatedAt")
@@ -101,12 +101,12 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("MovieRewiewId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int?>("RewiewId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Scenarist")
                         .IsRequired()
@@ -122,7 +122,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("MovieRewiewId");
+                    b.HasIndex("RewiewId");
 
                     b.ToTable("Films");
                 });
@@ -246,15 +246,11 @@ namespace DataAccessLayer.Migrations
                 {
                     b.HasOne("EntityLayer.Concrete.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("EntityLayer.Concrete.Rewiew", "MovieRewiew")
                         .WithMany()
-                        .HasForeignKey("MovieRewiewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RewiewId");
 
                     b.Navigation("Category");
 
