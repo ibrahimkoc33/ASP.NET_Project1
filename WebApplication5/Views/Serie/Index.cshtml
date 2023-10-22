@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Serie>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/MovieLayout.cshtml";
+}
+
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Director</td>
+        <td>Scenerist</td>
+        <td>Cast</td>
+        <td>Date</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Director</td>
+                <td>@item.Scenarist</td>
+                <td>@item.Cast</td>
+                <td>@item.Date</td>
+            </tr>
+    }
+</table>
