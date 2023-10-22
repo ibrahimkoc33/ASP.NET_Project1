@@ -38,15 +38,18 @@ namespace DataAccessLayer.Repository
         public Movie GetById(int id)
         {
             using var c = new Context();
-            return c.Films.Find(id);
+            return c.Movies.Find(id);
         }
 
         public List<Movie> ListAll()
         {
             using var c = new Context();
-            return c.Films.ToList();
+            return c.Movies.ToList();
         }
 
-
+        public List<Movie> GetByCategory()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

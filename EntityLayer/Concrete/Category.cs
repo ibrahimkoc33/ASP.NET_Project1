@@ -12,5 +12,7 @@ namespace EntityLayer.Concrete
 
         public string Name { get; set; }
 
+        public string color { get; set; }
+
     }
 }

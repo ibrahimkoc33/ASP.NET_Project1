@@ -9,7 +9,7 @@ namespace WebApplication5.Controllers
 		MovieManager cm = new MovieManager(new EFMovieRepository());
 		public IActionResult Index()
 		{
-			var values = cm.ListAll();
+			var values = cm.GetMovieByCategory();
 			return View(values);
 		}
 	}
