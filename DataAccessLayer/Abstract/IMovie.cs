@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IMovie:IGeneric<Movie>
     {
+        List<Movie> GetByCategory();
     }
 }

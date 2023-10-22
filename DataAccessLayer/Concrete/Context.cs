@@ -11,7 +11,7 @@ namespace DataAccessLayer.Concrete
         {
             options.UseNpgsql("Host=localhost; Database=deneme2; Username=postgres; Password=6843");
         }
-        public DbSet<Movie> Films { get; set; }
+        public DbSet<Movie> Movies { get; set; }
         public DbSet<Serie> Series { get; set; }
         public DbSet<Category> Categorys { get; set; }
         public DbSet<Rewiew> Rewiews { get; set; }

@@ -13,7 +13,8 @@ namespace BusinessLayer.Abstract
 		void MovieRemove(Movie movie);
 		void MovieUpdate(Movie movie);
 		List<Movie> ListAll();
-
 		Movie GetById(int id);
+
+		List<Movie> GetMovieByCategory();
 	}
 }
