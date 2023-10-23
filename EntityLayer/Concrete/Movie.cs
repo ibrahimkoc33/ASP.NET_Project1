@@ -24,6 +24,8 @@ namespace EntityLayer.Concrete
 
         public float Star { get; set; }
 
+        public int RunTime { get; set; }
+
         public DateOnly Date { get; set; }
 
         public int? RewiewId { get; set; }
