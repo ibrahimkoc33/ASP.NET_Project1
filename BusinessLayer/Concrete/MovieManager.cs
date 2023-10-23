@@ -47,5 +47,10 @@ namespace BusinessLayer.Concrete
         {
 			return _movie.GetByCategory();
         }
+
+		public	List<Movie>GetMovieById(int id)
+		{
+			return _movie.ListAll(x=>x.Id == id);
+		}
     }
 }

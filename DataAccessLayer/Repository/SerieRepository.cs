@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,6 +44,9 @@ namespace DataAccessLayer.Repository
             return c.Series.ToList();
         }
 
-        
-    }
+		public List<Serie> ListAll(Expression<Func<Serie, bool>> filter)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,5 +52,10 @@ namespace DataAccessLayer.Repository
         {
             throw new NotImplementedException();
         }
-    }
+
+		public List<Movie> ListAll(Expression<Func<Movie, bool>> filter)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }
