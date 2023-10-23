@@ -4,9 +4,6 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/MovieLayout.cshtml";
 }
-
-<h1>MovieSayfası</h1>
-<br />
 <!-- <table>
     <tr>
         <td>ID</td>
@@ -44,7 +41,7 @@
 							<div class="cate">
 								<span class="@item.Category.color"><a href="#">@item.Category.Name</a></span>
 							</div>
-							<h6><a href="#">@item.Name</a></h6>
+							<h6><a href="/Movie/MovieDetails/@item.Id">@item.Name</a></h6>
 							<p><i class="ion-android-star"></i><span>@item.Star</span> /10</p>
 						</div>
 					</div>

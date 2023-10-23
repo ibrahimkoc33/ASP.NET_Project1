@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +38,13 @@ namespace DataAccessLayer.Repository
             return c.Set<T>().ToList();
         }
 
-        public void Update(T t)
+		public List<T> ListAll(Expression<Func<T, bool>> filter)
+		{
+            using var c = new Context();
+			return c.Set<T>().Where(filter).ToList();
+		}
+
+		public void Update(T t)
         {
             using var c = new Context();
             c.Update(t);

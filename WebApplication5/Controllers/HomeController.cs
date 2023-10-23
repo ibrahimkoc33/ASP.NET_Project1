@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplication5.Models;
 
@@ -13,12 +15,19 @@ namespace WebApplication5.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+		MovieManager mm = new MovieManager(new EFMovieRepository());
+		public IActionResult Index()
+		{
+			var values = mm.GetMovieByCategory();
+			return View(values);
+		}
+		public IActionResult MovieDetails(int id)
+		{
+			var values = mm.GetMovieById(id);
+			return View(values);
+		}
 
-        public IActionResult Privacy()
+		public IActionResult Privacy()
         {
             return View();
         }
