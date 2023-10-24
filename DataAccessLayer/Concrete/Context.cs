@@ -15,6 +15,8 @@ namespace DataAccessLayer.Concrete
         public DbSet<Serie> Series { get; set; }
         public DbSet<Category> Categorys { get; set; }
         public DbSet<Rewiew> Rewiews { get; set; }
+        public DbSet<Celebrities> Celebrities { get; set; }
+
 
     }
 }
