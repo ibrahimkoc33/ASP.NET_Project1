@@ -15,5 +15,7 @@ namespace BusinessLayer.Abstract
         List<Serie> ListAll();
 
         Serie GetById(int id);
-    }
+
+		List<Serie> GetSerieByCategory();
+	}
 }

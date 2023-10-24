@@ -42,5 +42,15 @@ namespace BusinessLayer.Concrete
         {
             return _serie.ListAll();
         }
-    }
+
+		public List<Serie> GetSerieByCategory()
+		{
+            return _serie.GetByCategory();
+		}
+
+		public List<Serie> GetSerieById(int id)
+		{
+			return _serie.ListAll(x => x.Id == id);
+		}
+	}
 }

@@ -1,9 +1,11 @@
 ﻿@using EntityLayer.Concrete
-@model List<Movie>
+@model List<Serie>
+
 @{
-    ViewData["Title"] = "MovieList";
+    ViewData["Title"] = "SerieListByGrid";
     Layout = "~/Views/Shared/MovieLayout.cshtml";
 }
+
 
 <!DOCTYPE html>
 <!--[if IE 7]>
@@ -15,7 +17,7 @@
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 
-<!-- movielist07:38-->
+<!-- moviegrid07:29-->
 <head>
 	<!-- Basic need -->
 	<title>Open Pediatrics</title>
@@ -32,8 +34,8 @@
 	<meta name="format-detection" content="telephone-no">
 
 	<!-- CSS files -->
-	<link rel="stylesheet" href="~/template2css/plugins.css">
-	<link rel="stylesheet" href="~/template2css/style.css">
+	<link rel="stylesheet" href="~/template2/css/plugins.css">
+	<link rel="stylesheet" href="~/template2/css/style.css">
 
 </head>
 <body>
@@ -42,22 +44,22 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1> movie listing - list</h1>
+						<h1> serie listing - grid</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="/Home/Index">Home</a></li>
-							<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+							<li> <span class="ion-ios-arrow-right"></span> serie listing</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="page-single movie_list">
+	<div class="page-single">
 		<div class="container">
-			<div class="row ipad-width2">
+			<div class="row ipad-width">
 				<div class="col-md-8 col-sm-12 col-xs-12">
 					<div class="topbar-filter">
-						<p>Found <span>1,608 movies</span> in total</p>
+						<p>Found <span>1,608 series</span> in total</p>
 						<label>Sort by:</label>
 						<select>
 							<option value="popularity">Popularity Descending</option>
@@ -67,33 +69,40 @@
 							<option value="date">Release date Descending</option>
 							<option value="date">Release date Ascending</option>
 						</select>
-						<a href="/Movie/MovieList" class="list"><i class="ion-ios-list-outline active"></i></a>
-						<a href="/Movie/MovieListByGrid" class="grid"><i class="ion-grid"></i></a>
+						<a href="/Serie/SerieList" class="list"><i class="ion-ios-list-outline "></i></a>
+						<a href="/Serie/SerieListByGrid" class="grid"><i class="ion-grid active"></i></a>
 					</div>
-					@foreach(var item in Model)
-					{
-					<div class="movie-item-style-2">
-						<img src=@item.Image alt="">
-						<div class="mv-item-infor">
-								<h6><a href="/Movie/MovieDetails/@item.Id">@item.Name <span>(@item.Date.Year)</span></a></h6>
-							<p class="rate"><i class="ion-android-star"></i><span>@item.Star</span> /10</p>
-							<p class="describe">Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity...</p>
-							<p class="run-time"> Run Time: 2h21’    .     <span>MMPA: PG-13 </span>    .     <span>Release: @item.Date</span></p>
-							<p>Director: <a href="#">@item.Director</a></p>
-							<p>Stars: <a href="#">@item.Cast</a></p>
-						</div>
+					<div class="flex-wrap-movielist">
+						@foreach (var item in Model)
+						{
+							<div class="movie-item-style-2 movie-item-style-1">
+								<img src=@item.Image alt="">
+								<div class="hvr-inner">
+									<a href="/Serie/SerieDetails/@item.Id"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+								</div>
+								<div class="mv-item-infor">
+									<h6><a href="#">@item.Name</a></h6>
+									<p class="rate"><i class="ion-android-star"></i><span>@item.Star</span> /10</p>
+								</div>
+							</div>
+						}
 					</div>
-					}
+
 					<div class="topbar-filter">
-						<label>Movies per page:</label>
+						<label>series per page:</label>
 						<select>
-							<option value="range">5 Movies</option>
-							<option value="saab">10 Movies</option>
+							<option value="range">20 series</option>
+							<option value="saab">10 series</option>
 						</select>
+
 						<div class="pagination2">
 							<span>Page 1 of 2:</span>
 							<a class="active" href="#">1</a>
 							<a href="#">2</a>
+							<a href="#">3</a>
+							<a href="#">...</a>
+							<a href="#">78</a>
+							<a href="#">79</a>
 							<a href="#"><i class="ion-arrow-right-b"></i></a>
 						</div>
 					</div>
@@ -101,11 +110,11 @@
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="sidebar">
 						<div class="searh-form">
-							<h4 class="sb-title">Search for movie</h4>
+							<h4 class="sb-title">Search for serie</h4>
 							<form class="form-style-1" action="#">
 								<div class="row">
 									<div class="col-md-12 form-it">
-										<label>Movie name</label>
+										<label>serie name</label>
 										<input type="text" placeholder="Enter keywords">
 									</div>
 									<div class="col-md-12 form-it">
@@ -120,18 +129,13 @@
 												<option value="Action5">Action 5</option>
 											</select>
 										</div>
-
 									</div>
 									<div class="col-md-12 form-it">
 										<label>Rating Range</label>
-
 										<select>
 											<option value="range">-- Select the rating range below --</option>
 											<option value="saab">-- Select the rating range below --</option>
-											<option value="saab">-- Select the rating range below --</option>
-											<option value="saab">-- Select the rating range below --</option>
 										</select>
-
 									</div>
 									<div class="col-md-12 form-it">
 										<label>Release Year</label>
@@ -140,16 +144,12 @@
 												<select>
 													<option value="range">From</option>
 													<option value="number">10</option>
-													<option value="number">20</option>
-													<option value="number">30</option>
 												</select>
 											</div>
 											<div class="col-md-6">
 												<select>
 													<option value="range">To</option>
 													<option value="number">20</option>
-													<option value="number">30</option>
-													<option value="number">40</option>
 												</select>
 											</div>
 										</div>
@@ -161,7 +161,7 @@
 							</form>
 						</div>
 						<div class="ads">
-							<img src="~/template2images/uploads/ads1.png" alt="">
+							<img src="~/template2/images/uploads/ads1.png" alt="">
 						</div>
 						<div class="sb-facebook sb-it">
 							<h4 class="sb-title">Find us on Facebook</h4>
@@ -190,6 +190,6 @@
 	<script src="~/template2/js/custom.js"></script>
 </body>
 
-<!-- movielist07:38-->
+<!-- moviegrid07:38-->
 </html>
 

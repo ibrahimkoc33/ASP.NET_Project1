@@ -6,11 +6,26 @@ namespace WebApplication5.Controllers
 {
     public class SerieController : Controller
     {
-        SerieManager cm = new SerieManager(new EFSerieRepository());
+        SerieManager sm = new SerieManager(new EFSerieRepository());
         public IActionResult Index()
         {
-            var values = cm.ListAll();
+            var values = sm.GetSerieByCategory();
             return View(values);
         }
-    }
+		public IActionResult SerieDetails(int id)
+		{
+			var values = sm.GetSerieById(id);
+			return View(values);
+		}
+		public IActionResult SerieList()
+		{
+			var values = sm.GetSerieByCategory();
+			return View(values);
+		}
+		public IActionResult SerieListByGrid()
+		{
+			var values = sm.GetSerieByCategory();
+			return View(values);
+		}
+	}
 }
