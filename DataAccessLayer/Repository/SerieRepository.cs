@@ -48,5 +48,10 @@ namespace DataAccessLayer.Repository
 		{
 			throw new NotImplementedException();
 		}
+
+		public List<Serie> GetByCategory()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

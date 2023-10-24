@@ -1,10 +1,9 @@
 ﻿@using EntityLayer.Concrete
-@model List<Movie>
+@model List<Serie>
 @{
-    ViewData["Title"] = "MovieList";
+    ViewData["Title"] = "SerieList";
     Layout = "~/Views/Shared/MovieLayout.cshtml";
 }
-
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7 no-js" lang="en-US">
@@ -42,10 +41,10 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1> movie listing - list</h1>
+						<h1> serie listing - list</h1>
 						<ul class="breadcumb">
 							<li class="active"><a href="/Home/Index">Home</a></li>
-							<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+							<li> <span class="ion-ios-arrow-right"></span> serie listing</li>
 						</ul>
 					</div>
 				</div>
@@ -57,7 +56,7 @@
 			<div class="row ipad-width2">
 				<div class="col-md-8 col-sm-12 col-xs-12">
 					<div class="topbar-filter">
-						<p>Found <span>1,608 movies</span> in total</p>
+						<p>Found <span>1,608 series</span> in total</p>
 						<label>Sort by:</label>
 						<select>
 							<option value="popularity">Popularity Descending</option>
@@ -67,28 +66,28 @@
 							<option value="date">Release date Descending</option>
 							<option value="date">Release date Ascending</option>
 						</select>
-						<a href="/Movie/MovieList" class="list"><i class="ion-ios-list-outline active"></i></a>
-						<a href="/Movie/MovieListByGrid" class="grid"><i class="ion-grid"></i></a>
+						<a href="/Serie/SerieList" class="list"><i class="ion-ios-list-outline active"></i></a>
+						<a href="/Serie/SerieListByGrid" class="grid"><i class="ion-grid"></i></a>
 					</div>
-					@foreach(var item in Model)
+					@foreach (var item in Model)
 					{
-					<div class="movie-item-style-2">
-						<img src=@item.Image alt="">
-						<div class="mv-item-infor">
-								<h6><a href="/Movie/MovieDetails/@item.Id">@item.Name <span>(@item.Date.Year)</span></a></h6>
-							<p class="rate"><i class="ion-android-star"></i><span>@item.Star</span> /10</p>
-							<p class="describe">Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity...</p>
-							<p class="run-time"> Run Time: 2h21’    .     <span>MMPA: PG-13 </span>    .     <span>Release: @item.Date</span></p>
-							<p>Director: <a href="#">@item.Director</a></p>
-							<p>Stars: <a href="#">@item.Cast</a></p>
+						<div class="movie-item-style-2">
+							<img src=@item.Image alt="">
+							<div class="mv-item-infor">
+								<h6><a href="/Serie/SerieDetails/@item.Id">@item.Name <span>(@item.Date.Year)</span></a></h6>
+								<p class="rate"><i class="ion-android-star"></i><span>@item.Star</span> /10</p>
+								<p class="describe">Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity...</p>
+								<p class="run-time"> Season: @item.Season    .     <span>MMPA: PG-13 </span>    .     <span>Release: @item.Date</span></p>
+								<p>Director: <a href="#">@item.Director</a></p>
+								<p>Stars: <a href="#">@item.Cast</a></p>
+							</div>
 						</div>
-					</div>
 					}
 					<div class="topbar-filter">
-						<label>Movies per page:</label>
+						<label>Series per page:</label>
 						<select>
-							<option value="range">5 Movies</option>
-							<option value="saab">10 Movies</option>
+							<option value="range">5 Series</option>
+							<option value="saab">10 Series</option>
 						</select>
 						<div class="pagination2">
 							<span>Page 1 of 2:</span>
@@ -101,11 +100,11 @@
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="sidebar">
 						<div class="searh-form">
-							<h4 class="sb-title">Search for movie</h4>
+							<h4 class="sb-title">Search for Serie</h4>
 							<form class="form-style-1" action="#">
 								<div class="row">
 									<div class="col-md-12 form-it">
-										<label>Movie name</label>
+										<label>Serie name</label>
 										<input type="text" placeholder="Enter keywords">
 									</div>
 									<div class="col-md-12 form-it">
@@ -190,6 +189,4 @@
 	<script src="~/template2/js/custom.js"></script>
 </body>
 
-<!-- movielist07:38-->
 </html>
-

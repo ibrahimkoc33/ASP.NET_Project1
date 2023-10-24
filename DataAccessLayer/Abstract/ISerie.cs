@@ -9,6 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface ISerie:IGeneric<Serie>
     {
-
-    }
+		List<Serie> GetByCategory();
+	}
 }
