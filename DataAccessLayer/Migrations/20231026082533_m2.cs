@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace WebApplication5.Migrations
+namespace DataAccessLayer.Migrations
 {
-    public partial class mig13 : Migration
+    public partial class m2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -28,7 +28,6 @@ namespace EntityLayer.Concrete
 
         public DateOnly Date { get; set; }
 
-        public int? RewiewId { get; set; }
         public Rewiew MovieRewiew { get; set; }
 
         public int? CategoryId { get; set; }

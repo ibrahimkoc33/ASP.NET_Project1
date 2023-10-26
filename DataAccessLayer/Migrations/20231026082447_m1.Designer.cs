@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20231021170441_m23")]
-    partial class m23
+    [Migration("20231026082447_m1")]
+    partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,12 +57,216 @@ namespace DataAccessLayer.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("color")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categorys");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.Celebrities", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Age")
+                        .HasColumnType("integer");
+
+                    b.Property<DateOnly>("BirthDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("DelegationCreatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("DelegationUpdatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Height")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Job")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("MoviesId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("SeriesId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MoviesId");
+
+                    b.HasIndex("SeriesId");
+
+                    b.ToTable("Celebrities");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Movie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Cast")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<Guid?>("DelegationCreatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("DelegationUpdatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Director")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("RunTime")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Scenarist")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<float>("Star")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Rewiew", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("DelegationCreatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("DelegationUpdatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Star")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Writer")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId")
+                        .IsUnique();
+
+                    b.ToTable("Rewiews");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Serie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,8 +322,11 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("Star")
+                    b.Property<int>("Season")
                         .HasColumnType("integer");
+
+                    b.Property<float>("Star")
+                        .HasColumnType("real");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -133,10 +340,10 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("RewiewId");
 
-                    b.ToTable("Films");
+                    b.ToTable("Series");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Rewiew", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -156,85 +363,20 @@ namespace DataAccessLayer.Migrations
                     b.Property<Guid?>("DelegationUpdatedBy")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("Star")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Writer")
+                    b.Property<string>("Mail")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Rewiews");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Serie", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Cast")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
-
-                    b.Property<Guid?>("DelegationCreatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("DelegationUpdatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Director")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Scenarist")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<int>("Season")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("SerieRewiewId")
-                        .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -242,13 +384,28 @@ namespace DataAccessLayer.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.ToTable("Users");
+                });
 
-                    b.HasIndex("SerieRewiewId");
+            modelBuilder.Entity("EntityLayer.Concrete.Celebrities", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Movie", "Movies")
+                        .WithMany()
+                        .HasForeignKey("MoviesId");
 
-                    b.ToTable("Series");
+                    b.HasOne("EntityLayer.Concrete.Serie", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.Navigation("Movies");
+
+                    b.Navigation("Series");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Movie", b =>
@@ -257,32 +414,39 @@ namespace DataAccessLayer.Migrations
                         .WithMany()
                         .HasForeignKey("CategoryId");
 
-                    b.HasOne("EntityLayer.Concrete.Rewiew", "MovieRewiew")
-                        .WithMany()
-                        .HasForeignKey("RewiewId");
-
                     b.Navigation("Category");
+                });
 
-                    b.Navigation("MovieRewiew");
+            modelBuilder.Entity("EntityLayer.Concrete.Rewiew", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Movie", "Movie")
+                        .WithOne("MovieRewiew")
+                        .HasForeignKey("EntityLayer.Concrete.Rewiew", "MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Serie", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("EntityLayer.Concrete.Rewiew", "SerieRewiew")
                         .WithMany()
-                        .HasForeignKey("SerieRewiewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RewiewId");
 
                     b.Navigation("Category");
 
                     b.Navigation("SerieRewiew");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Movie", b =>
+                {
+                    b.Navigation("MovieRewiew")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

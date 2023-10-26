@@ -186,9 +186,6 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("RewiewId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("RunTime")
                         .HasColumnType("integer");
 
@@ -209,8 +206,6 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("RewiewId");
-
                     b.ToTable("Movies");
                 });
 
@@ -228,6 +223,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid");
 
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
                     b.Property<Guid?>("DelegationCreatedBy")
                         .HasColumnType("uuid");
 
@@ -241,8 +239,15 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
+                    b.Property<int>("MovieId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("Star")
                         .HasColumnType("integer");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -255,6 +260,9 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MovieId")
+                        .IsUnique();
 
                     b.ToTable("Rewiews");
                 });
@@ -407,13 +415,18 @@ namespace DataAccessLayer.Migrations
                         .WithMany()
                         .HasForeignKey("CategoryId");
 
-                    b.HasOne("EntityLayer.Concrete.Rewiew", "MovieRewiew")
-                        .WithMany()
-                        .HasForeignKey("RewiewId");
-
                     b.Navigation("Category");
+                });
 
-                    b.Navigation("MovieRewiew");
+            modelBuilder.Entity("EntityLayer.Concrete.Rewiew", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Movie", "Movie")
+                        .WithOne("MovieRewiew")
+                        .HasForeignKey("EntityLayer.Concrete.Rewiew", "MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Serie", b =>
@@ -429,6 +442,12 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("SerieRewiew");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Movie", b =>
+                {
+                    b.Navigation("MovieRewiew")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
