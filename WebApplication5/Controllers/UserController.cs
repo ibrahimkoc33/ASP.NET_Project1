@@ -12,6 +12,10 @@ namespace WebApplication5.Controllers
 		{
 			var values = um.ListAll();
 			return View(values);
+		}public IActionResult UserProfile()
+		{
+			var values = um.ListAll();
+			return View(values);
 		}
 	}
 }
