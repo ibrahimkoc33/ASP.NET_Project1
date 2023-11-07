@@ -18,20 +18,10 @@ namespace WebApplication5.Controllers
 
 		MovieManager mm = new MovieManager(new EFMovieRepository());
         UserManager um = new UserManager(new EFUserRepository());
-
-        [HttpGet]
         public IActionResult Index()
 		{
 			var values = mm.GetMovieByCategory();
 			return View(values);
-		}
-
-        [HttpPost]
-		public IActionResult Index(User u)
-		{
-            u.IsActive = true;
-			um.UserAdd(u);
-            return RedirectToAction("Index", "Movie");
 		}
 		public IActionResult MovieDetails(int id)
 		{
