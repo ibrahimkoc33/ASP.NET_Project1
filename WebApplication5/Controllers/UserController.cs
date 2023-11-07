@@ -10,12 +10,7 @@ namespace WebApplication5.Controllers
 		UserManager um = new UserManager(new EFUserRepository());
 		public IActionResult Index()
 		{
-			var values = um.ListAll();
-			return View(values);
-		}public IActionResult UserProfile()
-		{
-			var values = um.ListAll();
-			return View(values);
+			return View();
 		}
 	}
 }

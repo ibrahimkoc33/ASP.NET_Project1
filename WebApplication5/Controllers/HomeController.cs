@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplication5.Models;
@@ -16,10 +17,21 @@ namespace WebApplication5.Controllers
         }
 
 		MovieManager mm = new MovieManager(new EFMovieRepository());
-		public IActionResult Index()
+        UserManager um = new UserManager(new EFUserRepository());
+
+        [HttpGet]
+        public IActionResult Index()
 		{
 			var values = mm.GetMovieByCategory();
 			return View(values);
+		}
+
+        [HttpPost]
+		public IActionResult Index(User u)
+		{
+            u.IsActive = true;
+			um.UserAdd(u);
+            return RedirectToAction("Index", "Movie");
 		}
 		public IActionResult MovieDetails(int id)
 		{
