@@ -1,6 +1,6 @@
 ﻿@model EntityLayer.Concrete.User
 @{
-	ViewData["Title"] = "Register";
+	ViewData["Title"] = "Login";
 	Layout = "~/Views/Shared/MovieLayout.cshtml";
 }
 
@@ -50,30 +50,13 @@
 			<div class="row ipad-width">
 				<div class="wrapper">
 					<h2>Registration</h2>
-					@using(Html.BeginForm("Index","Register",FormMethod.Post)){
-						<div class="form-row">
-							<label for="validationCustom01">
-								<h6>Name Surname:</h6>
-								@Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
-								@Html.ValidationMessageFor(x=>x.Name, "" ,new {@class="text-danger"})
-								@* <input type="text" class="form-control" name="name" id="name-2" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" /> *@
-							</label>
-						</div>
+					@using(Html.BeginForm("Index","Login",FormMethod.Post)){
 						<div class="form-row">
 							<label for="validationCustom02">
 								<h6>Username:</h6>
 								@Html.TextBoxFor(x=>x.Username)
 								@Html.ValidationMessageFor(x=>x.Username, "" ,new {@class="text-danger"})
 @* 								<input type="text" class="form-control" name="username" id="username-2" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
- *@							</label>
-						</div>
-
-						<div class="form-row">
-							<label for="email-2">
-								<h6>your email:</h6>
-								@Html.TextBoxFor(x=>x.Mail)
-								@Html.ValidationMessageFor(x=>x.Mail, "" ,new {@class="text-danger"})
-@* 								<input type="email" class="form-control" name="mail" id="email-2" placeholder="" required="required" />
  *@							</label>
 						</div>
 						<div class="form-row">
@@ -86,17 +69,8 @@
 @* 								<input type="password" class="form-control" name="password" id="password-2" placeholder="" required="required" />
  *@							</label>
 						</div>
-						<div class="form-row">
-							<label for="repassword-2">
-								<h6>
-									re-type Password:</h6>
-								@Html.TextBoxFor(x=>x.Password)
-								@Html.ValidationMessageFor(x=>x.Password, "" ,new {@class="text-danger"})
-@* 								<input type="password" class="form-control" name="password" id="repassword-2" placeholder="" required="required" />
- *@							</label>
-						</div>
 						<div class="row">
-							<button type="submit">sign up</button>
+							<button type="submit">sign in</button>
 						</div>
 					}
 				</div>

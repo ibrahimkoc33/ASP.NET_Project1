@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.Validation;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication5.Controllers
@@ -17,9 +19,23 @@ namespace WebApplication5.Controllers
 		[HttpPost]
 		public IActionResult Index(User u)
 		{
-			u.IsActive = true;
-			um.UserAdd(u);
-			return RedirectToAction("Index", "Home");
+			UserValidator validationRules = new UserValidator();
+			ValidationResult results = validationRules.Validate(u);
+			if(results.IsValid)
+			{
+				u.IsActive = true;
+				um.UserAdd(u);
+				return RedirectToAction("Index", "Home");
+			}
+			else
+			{
+				foreach(var item in results.Errors)
+				{
+					ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+				}
+			}
+			return View();
+			
 		}
 	}
 }
