@@ -245,7 +245,8 @@
 													<option value="date">Release date Ascending</option>
 												</select>
 											</div>
-												@await Html.PartialAsync("~/Views/Rewiew/RewiewList.cshtml")
+												@await Component.InvokeAsync("RewiewList")
+												@*@await Html.PartialAsync("~/Views/Rewiew/RewiewList.cshtml")*@
 											<div class="topbar-filter">
 												<label>Reviews per page:</label>
 												<select>

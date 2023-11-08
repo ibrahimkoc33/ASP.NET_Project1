@@ -15,9 +15,9 @@ namespace WebApplication5.Controllers
         {
             return PartialView();
         }
-        public PartialViewResult RewiewList()
+        public PartialViewResult RewiewList(int id)
         {
-            var values = rm.ListAll(1);
+            var values = rm.ListAll(id);
             return PartialView(values);
         }
 
