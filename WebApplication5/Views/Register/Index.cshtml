@@ -81,7 +81,7 @@
 								<h6>
 									Password:
 								</h6>
-								@Html.TextBoxFor(x=>x.Password)
+								@Html.TextBoxFor(x=>x.Password ,new {@type="password"})
 								@Html.ValidationMessageFor(x=>x.Password, "" ,new {@class="text-danger"})
 @* 								<input type="password" class="form-control" name="password" id="password-2" placeholder="" required="required" />
  *@							</label>
@@ -90,7 +90,7 @@
 							<label for="repassword-2">
 								<h6>
 									re-type Password:</h6>
-								@Html.TextBoxFor(x=>x.Password)
+								@Html.TextBoxFor(x=>x.Password,new {@type="password"})
 								@Html.ValidationMessageFor(x=>x.Password, "" ,new {@class="text-danger"})
 @* 								<input type="password" class="form-control" name="password" id="repassword-2" placeholder="" required="required" />
  *@							</label>
