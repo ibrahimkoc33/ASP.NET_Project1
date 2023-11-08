@@ -19,7 +19,10 @@ namespace EntityLayer.Concrete
 
         public DateOnly Date { get; set; }
 
-        public int MovieId { get; set; }
+		public string Overview { get; set; }
+
+
+		public int MovieId { get; set; }
 
         public Movie Movie { get; set; }
     }

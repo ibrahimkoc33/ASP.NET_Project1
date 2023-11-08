@@ -26,6 +26,8 @@ namespace EntityLayer.Concrete
 
         public int RunTime { get; set; }
 
+        public string Overview { get; set; }
+
         public DateOnly Date { get; set; }
 
         public Rewiew MovieRewiew { get; set; }
