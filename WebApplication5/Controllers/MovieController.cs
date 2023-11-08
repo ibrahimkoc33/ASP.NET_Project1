@@ -14,6 +14,7 @@ namespace WebApplication5.Controllers
 		}
 		public IActionResult MovieDetails(int id)
 		{
+			ViewBag.i=id;
 			var values= mm.GetMovieById(id);
 			return View(values);
 		}

@@ -14,5 +14,7 @@ namespace EntityLayer.Concrete
 
         public string color { get; set; }
 
+        public List<Movie> Movies { get; set; }
+
     }
 }

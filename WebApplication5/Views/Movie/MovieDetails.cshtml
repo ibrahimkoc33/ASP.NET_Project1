@@ -245,7 +245,7 @@
 													<option value="date">Release date Ascending</option>
 												</select>
 											</div>
-												@await Component.InvokeAsync("RewiewList")
+												@await Component.InvokeAsync("RewiewListByMovie",new {id =ViewBag.i})
 												@*@await Html.PartialAsync("~/Views/Rewiew/RewiewList.cshtml")*@
 											<div class="topbar-filter">
 												<label>Reviews per page:</label>

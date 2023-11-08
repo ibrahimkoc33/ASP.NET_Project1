@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Rewiew>
+
+<div class="title-hd-sm">
+    <h4>User reviews</h4>
+    <a href="#" class="time">See All 56 Reviews <i class="ion-ios-arrow-right"></i></a>
+</div>
+
+@foreach (var item in Model)
+{
+	<div class="mv-user-review-item">
+		<div class="user-infor">
+			<img src="~/template2/images/uploads/userava2.jpg" alt="">
+			<div>
+				<h3>@item.Title</h3>
+				@{
+					var i = 1;
+					while (i < item.Star)
+					{
+						<i class="ion-ios-star" style="color:yellow;"></i>
+						i += 1;
+					}
+					float result = item.Star - (i - 1);
+					if (result >= 0.5)
+					{
+						<i class="ion-ios-star-half" style="color:yellow;"></i>
+					}
+
+					else
+					{
+						<i class="ion-ios-star-outline"></i>
+					}
+					while (i < 10)
+					{
+						<i class="ion-ios-star-outline"></i>
+						i += 1;
+					}
+					<span style="color:yellow">@item.Star</span>
+				}
+				<p class="time">
+					@item.Date by <a href="#"> @item.Writer</a>
+			</div>
+		</div>
+		<p>@item.Description</p>
+	</div>
+}
