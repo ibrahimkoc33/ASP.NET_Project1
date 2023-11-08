@@ -23,6 +23,7 @@ namespace EntityLayer.Concrete
         public string Image { get; set; }
 
         public float Star { get; set; }
+        public string Overview { get; set; }
 
         public DateOnly Date { get; set; }
         public int Season { get; set; }
