@@ -12,13 +12,13 @@ namespace WebApplication5.ApiControllers
 	public class RewiewApiController : ControllerBase
 	{
 		RewiewManager rm = new RewiewManager(new EFRewiewRepository());
-		[HttpGet("api/rewiews")]
+		[HttpGet("Get Rewiews")]
 		public IActionResult GetRewiews()
 		{
 			var rewiews = rm.ListAll();
 			return Ok(rewiews);
 		}
-		[HttpGet("api/users/{id}")]
+		[HttpGet("Get Rewiew By Id")]
 		public IActionResult GetRewiew(int id)
 		{
 			var rewiew = rm.GetById(id);
@@ -28,11 +28,20 @@ namespace WebApplication5.ApiControllers
 			}
 			return Ok(rewiew);
 		}
-		[HttpPost]
+		[HttpPost("Add Rewiew")]
 		public IActionResult AddRewiew(Rewiew rewiew)
 		{
 			using var c = new Context();
 			c.Add(rewiew);
+			c.SaveChanges();
+			return Ok();
+		}
+
+		[HttpPost("Remove Rewiew")]
+		public IActionResult RemoveRewiew(Rewiew rewiew)
+		{
+			using var c = new Context();
+			c.Remove(rewiew);
 			c.SaveChanges();
 			return Ok();
 		}

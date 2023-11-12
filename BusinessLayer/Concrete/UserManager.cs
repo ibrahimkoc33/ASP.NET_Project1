@@ -29,7 +29,7 @@ namespace BusinessLayer.Concrete
 		{
 			return _user.ListAll();
 		}
-		/*
+		
 		public void UserRemove(User user)
 		{
 			_user.Delete(user);
@@ -38,6 +38,6 @@ namespace BusinessLayer.Concrete
 		public void UserUpdate(User user)
 		{
 			_user.Update(user);
-		}*/
+		}
 	}
 }

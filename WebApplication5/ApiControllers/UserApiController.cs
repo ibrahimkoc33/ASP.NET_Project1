@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
@@ -12,13 +13,13 @@ namespace WebApplication5.Controllers
 	public class UserApiController : Controller
 	{
 		UserManager um = new UserManager(new EFUserRepository());
-		[HttpGet("api/users")]
+		[HttpGet("Get Users")]
 		public IActionResult GetUsers()
 		{
 			var users = um.ListAll();
 			return Ok(users);
 		}
-		[HttpGet("api/users/{id}")]
+		[HttpGet("Get User By Id")]
 		public IActionResult GetUser(int id)
 		{
 			var user = um.GetById(id);
@@ -28,11 +29,20 @@ namespace WebApplication5.Controllers
 			}
 			return Ok(user);
 		}
-		[HttpPost]
+		[HttpPost("Add User")]
 		public IActionResult AddUser(User user)
 		{
 			using var c = new Context();
 			c.Add(user);
+			c.SaveChanges();
+			return Ok();
+		}
+
+		[HttpPost("Remove User")]
+		public IActionResult RemoveUser(User user)
+		{
+			using var c = new Context();
+			c.Remove(user);
 			c.SaveChanges();
 			return Ok();
 		}
