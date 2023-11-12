@@ -36,14 +36,31 @@ namespace WebApplication5.ApiControllers
 			c.SaveChanges();
 			return Ok();
 		}
-
-		[HttpPost("Remove Rewiew")]
-		public IActionResult RemoveRewiew(Rewiew rewiew)
+		[HttpPut("Update Rewiew")]
+		public IActionResult UpdateRewiew(Rewiew rewiew)
 		{
 			using var c = new Context();
+			var r = c.Rewiews.Find(rewiew.Id);
+			r.Writer = rewiew.Writer;
+			r.Title = rewiew.Title;
+			r.Star = rewiew.Star;
+			r.MovieId = rewiew.MovieId;
+			//devamı var
+			c.Update(r);
+			c.SaveChanges();
+			return Ok();
+		}
+
+		[HttpDelete("Remove Rewiew")]
+		public IActionResult RemoveRewiew(int id)
+		{
+			using var c = new Context();
+			var rewiew = c.Rewiews.Find(id);
 			c.Remove(rewiew);
 			c.SaveChanges();
 			return Ok();
 		}
+
+		
 	}
 }

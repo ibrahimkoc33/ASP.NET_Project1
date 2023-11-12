@@ -37,11 +37,27 @@ namespace WebApplication5.Controllers
 			c.SaveChanges();
 			return Ok();
 		}
-
-		[HttpPost("Remove Movie")]
-		public IActionResult RemoveMovie(Movie movie)
+		[HttpPut("Update Movie")]
+		public IActionResult UpdateMovie(Movie movie)
 		{
 			using var c = new Context();
+			var m = c.Movies.Find(movie.Id);
+			m.Overview=movie.Overview;
+			m.Star=movie.Star;
+			m.Director=movie.Director;
+			m.Cast=movie.Cast;
+			m.Date=movie.Date;
+			//devamı var
+			c.Update(movie);
+			c.SaveChanges();
+			return Ok();
+		}
+
+		[HttpDelete("Remove Movie")]
+		public IActionResult RemoveMovie(int id)
+		{
+			using var c = new Context();
+			var movie = c.Movies.Find(id);
 			c.Remove(movie);
 			c.SaveChanges();
 			return Ok();

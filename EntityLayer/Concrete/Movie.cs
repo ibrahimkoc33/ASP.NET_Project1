@@ -28,7 +28,7 @@ namespace EntityLayer.Concrete
 
         public string Overview { get; set; }
 
-        public DateOnly Date { get; set; }
+        public int Date { get; set; }
 
         public List<Rewiew> Rewiews { get; set; }
 
