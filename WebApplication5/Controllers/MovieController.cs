@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication5.Controllers
 {
+	//[ApiController]
+	//[Route("[controller]")]
 	public class MovieController : Controller
 	{
 		MovieManager mm = new MovieManager(new EFMovieRepository());
@@ -29,14 +31,14 @@ namespace WebApplication5.Controllers
 			return View(values);
 		}
 
-		[HttpGet("api/movies")]
+		//[HttpGet("api/movies")]
 		public IActionResult GetMovies()
 		{
 			var movies = mm.GetMovieByCategory();
 			return Ok(movies);
 		}
 
-		[HttpGet("api/movies/{id}")]
+		//[HttpGet("api/movies/{id}")]
 		public IActionResult GetMovie(int id)
 		{
 			var movie = mm.GetMovieById(id);

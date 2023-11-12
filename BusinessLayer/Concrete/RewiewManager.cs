@@ -23,9 +23,18 @@ namespace BusinessLayer.Concrete
             return _rewiew.ListAll(x=>x.MovieId == id);
         }
 
-        public void RewiewAdd(Rewiew rewiew)
+		public List<Rewiew> ListAll()
+		{
+			return _rewiew.ListAll();
+		}
+
+		public void RewiewAdd(Rewiew rewiew)
         {
             throw new NotImplementedException();
         }
-    }
+		public Rewiew GetById(int id)
+		{
+			return _rewiew.GetById(id);
+		}
+	}
 }

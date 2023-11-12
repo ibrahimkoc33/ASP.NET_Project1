@@ -13,7 +13,9 @@ namespace BusinessLayer.Abstract
         //void CategoryRemove(Category category);
         //void CategoryUpdate(Category category);
         List<Rewiew> ListAll(int id);
+        List<Rewiew> ListAll();
 
-        //Category GetById(int id);
+
+        Rewiew GetById(int id);
     }
 }

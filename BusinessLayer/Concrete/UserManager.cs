@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete
 		{
 			_user.Add(user);
 		}
-		/*public User GetById(int id)
+		public User GetById(int id)
 		{
 			return _user.GetById(id);
 		}
@@ -29,6 +29,7 @@ namespace BusinessLayer.Concrete
 		{
 			return _user.ListAll();
 		}
+		/*
 		public void UserRemove(User user)
 		{
 			_user.Delete(user);
