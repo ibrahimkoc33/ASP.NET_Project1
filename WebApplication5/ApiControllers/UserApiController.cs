@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -12,13 +13,13 @@ namespace WebApplication5.Controllers
 	{
 		UserManager um = new UserManager(new EFUserRepository());
 		[HttpGet("api/users")]
-		public IActionResult GetMovies()
+		public IActionResult GetUsers()
 		{
 			var users = um.ListAll();
 			return Ok(users);
 		}
 		[HttpGet("api/users/{id}")]
-		public IActionResult GetMovie(int id)
+		public IActionResult GetUser(int id)
 		{
 			var user = um.GetById(id);
 			if (user == null)
@@ -26,6 +27,14 @@ namespace WebApplication5.Controllers
 				return NotFound();
 			}
 			return Ok(user);
+		}
+		[HttpPost]
+		public IActionResult AddUser(User user)
+		{
+			using var c = new Context();
+			c.Add(user);
+			c.SaveChanges();
+			return Ok();
 		}
 	}
 }

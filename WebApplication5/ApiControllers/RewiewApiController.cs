@@ -1,5 +1,7 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +27,14 @@ namespace WebApplication5.ApiControllers
 				return NotFound();
 			}
 			return Ok(rewiew);
+		}
+		[HttpPost]
+		public IActionResult AddRewiew(Rewiew rewiew)
+		{
+			using var c = new Context();
+			c.Add(rewiew);
+			c.SaveChanges();
+			return Ok();
 		}
 	}
 }

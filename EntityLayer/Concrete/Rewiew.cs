@@ -17,7 +17,7 @@ namespace EntityLayer.Concrete
 
         public int Star { get; set; }
 
-        public DateOnly Date { get; set; }
+        public int Date { get; set; }
 		public int MovieId { get; set; }
 
         public Movie Movie { get; set; }

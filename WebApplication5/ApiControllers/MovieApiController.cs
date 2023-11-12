@@ -1,5 +1,7 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +28,14 @@ namespace WebApplication5.Controllers
 				return NotFound();
 			}
 			return Ok(movie);
+		}
+		[HttpPost]
+		public IActionResult AddMovie(Movie movie)
+		{
+			using var c = new Context();
+			c.Add(movie);
+			c.SaveChanges();
+			return Ok();
 		}
 	}
 }
