@@ -18,6 +18,7 @@ else
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error", "?code ={0}");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
