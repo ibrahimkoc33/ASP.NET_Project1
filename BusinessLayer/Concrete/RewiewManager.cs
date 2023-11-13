@@ -30,8 +30,8 @@ namespace BusinessLayer.Concrete
 
 		public void RewiewAdd(Rewiew rewiew)
         {
-            throw new NotImplementedException();
-        }
+			_rewiew.Add(rewiew);
+		}
 		public Rewiew GetById(int id)
 		{
 			return _rewiew.GetById(id);
