@@ -1,13 +1,17 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplication5.Models;
 
 namespace WebApplication5.Controllers
 {
-    public class HomeController : Controller
+	[Authorize]
+	public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -18,7 +22,8 @@ namespace WebApplication5.Controllers
 
 		MovieManager mm = new MovieManager(new EFMovieRepository());
         UserManager um = new UserManager(new EFUserRepository());
-        public IActionResult Index()
+		
+		public IActionResult Index()
 		{
 			var values = mm.GetMovieByCategory();
 			return View(values);
@@ -33,8 +38,14 @@ namespace WebApplication5.Controllers
         {
             return View();
         }
+		public async Task<IActionResult> LogOut()
+		{
+			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+			return RedirectToAction("Index","Login");
+		}
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
