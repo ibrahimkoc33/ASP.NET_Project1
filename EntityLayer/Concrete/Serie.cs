@@ -25,13 +25,13 @@ namespace EntityLayer.Concrete
         public float Star { get; set; }
         public string Overview { get; set; }
 
-        public DateOnly Date { get; set; }
-        public int Season { get; set; }
+		public int Date { get; set; }
+		public int Season { get; set; }
 
         public int? RewiewId { get; set; }
-        public Rewiew SerieRewiew { get; set; }
+        public Rewiew? SerieRewiew { get; set; }
         public int? CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
     }
 }

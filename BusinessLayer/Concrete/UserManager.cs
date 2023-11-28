@@ -11,11 +11,11 @@ namespace BusinessLayer.Concrete
 {
 	public class UserManager : IUserService
 	{
-		IUser _user;
+		private readonly IUser _user;
 
 		public UserManager(IUser user)
 		{
-			_user = user;
+			this._user = user;
 		}
 		public void UserAdd(User user)
 		{

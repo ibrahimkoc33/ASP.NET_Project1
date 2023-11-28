@@ -15,7 +15,7 @@ namespace EntityLayer.Concrete
         public string Bio { get; set; }
         public string Job { get; set; }
         public string Image { get; set; }
-        public DateOnly BirthDate { get; set; }
+        public int BirthDate { get; set; }
         public string Country { get; set; }
         public Movie? Movies { get; set; }
         public Serie? Series { get; set; }

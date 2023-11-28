@@ -30,10 +30,10 @@ namespace EntityLayer.Concrete
 
         public int Date { get; set; }
 
-        public List<Rewiew> Rewiews { get; set; }
+        public List<Rewiew>? Rewiews { get; set; }
 
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
     }
 }
