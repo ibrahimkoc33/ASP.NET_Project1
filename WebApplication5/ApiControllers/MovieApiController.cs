@@ -42,13 +42,24 @@ namespace WebApplication5.Controllers
 		{
 			using var c = new Context();
 			var m = c.Movies.Find(movie.Id);
+			m.Name = movie.Name;
+			m.Genre = movie.Genre;
+			m.Director = movie.Director;
+			m.Scenarist = movie.Scenarist;
+			m.Cast = movie.Cast;
+			m.Image = movie.Image;
+			m.Star = movie.Star;
+			m.RunTime = movie.RunTime;
 			m.Overview=movie.Overview;
-			m.Star=movie.Star;
-			m.Director=movie.Director;
-			m.Cast=movie.Cast;
 			m.Date=movie.Date;
-			//devamı var
-			c.Update(movie);
+			m.Rewiews = movie.Rewiews;
+			m.CategoryId = movie.CategoryId;
+			m.Category = movie.Category;
+			if (movie == null)
+			{
+				return NotFound();
+			}
+			c.Update(m);
 			c.SaveChanges();
 			return Ok();
 		}
@@ -58,6 +69,10 @@ namespace WebApplication5.Controllers
 		{
 			using var c = new Context();
 			var movie = c.Movies.Find(id);
+			if (movie == null)
+			{
+				return NotFound();
+			}
 			c.Remove(movie);
 			c.SaveChanges();
 			return Ok();

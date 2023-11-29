@@ -42,11 +42,17 @@ namespace WebApplication5.ApiControllers
 		{
 			using var c = new Context();
 			var r = c.Rewiews.Find(rewiew.Id);
-			r.Writer = rewiew.Writer;
 			r.Title = rewiew.Title;
+			r.Description = rewiew.Description;
+			r.Writer = rewiew.Writer;
 			r.Star = rewiew.Star;
+			r.Date = rewiew.Date;
 			r.MovieId = rewiew.MovieId;
-			//devamı var
+			r.Movie=rewiew.Movie;
+			if (rewiew == null)
+			{
+				return NotFound();
+			}
 			c.Update(r);
 			c.SaveChanges();
 			return Ok();
@@ -57,6 +63,10 @@ namespace WebApplication5.ApiControllers
 		{
 			using var c = new Context();
 			var rewiew = c.Rewiews.Find(id);
+			if (rewiew == null)
+			{
+				return NotFound();
+			}
 			c.Remove(rewiew);
 			c.SaveChanges();
 			return Ok();

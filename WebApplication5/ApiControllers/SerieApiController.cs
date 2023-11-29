@@ -42,13 +42,25 @@ namespace WebApplication5.ApiControllers
 		{
 			using var c = new Context();
 			var m = c.Series.Find(serie.Id);
+			m.Name = serie.Name;
 			m.Overview = serie.Overview;
 			m.Star = serie.Star;
 			m.Director = serie.Director;
 			m.Cast = serie.Cast;
 			m.Date = serie.Date;
-			//devamı var
-			c.Update(serie);
+			m.Category = serie.Category;
+			m.Image= serie.Image;
+			m.Genre = serie.Genre;
+			m.Scenarist = serie.Scenarist;
+			m.Season = serie.Season;
+			m.RewiewId = serie.RewiewId;
+			m.SerieRewiew = serie.SerieRewiew;
+			m.CategoryId = serie.CategoryId;
+			if (serie == null)
+			{
+				return NotFound();
+			}
+			c.Update(m);
 			c.SaveChanges();
 			return Ok();
 		}
@@ -58,6 +70,10 @@ namespace WebApplication5.ApiControllers
 		{
 			using var c = new Context();
 			var serie = c.Series.Find(id);
+			if (serie == null)
+			{
+				return NotFound();
+			}
 			c.Remove(serie);
 			c.SaveChanges();
 			return Ok();

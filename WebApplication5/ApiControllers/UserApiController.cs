@@ -46,6 +46,10 @@ namespace WebApplication5.Controllers
 			u.Username = user.Username;
 			u.Mail = user.Mail;
 			u.Password = user.Password;
+			if (user == null)
+			{
+				return NotFound();
+			}
 			c.Update(u);
 			c.SaveChanges();
 			return Ok();
@@ -56,6 +60,10 @@ namespace WebApplication5.Controllers
 		{
 			using var c = new Context();
 			var user = c.Users.Find(id);
+			if (user == null)
+			{
+				return NotFound();
+			}
 			c.Remove(user);
 			c.SaveChanges();
 			return Ok();

@@ -42,12 +42,22 @@ namespace WebApplication5.Controllers
 		{
 			using var c = new Context();
 			var celeb = c.Celebrities.Find(celebrities.Id);
-			celeb.Series = celebrities.Series;
+			celeb.Name = celebrities.Name;
+			celeb.Gender = celebrities.Gender;
 			celeb.Height = celebrities.Height;
 			celeb.Age = celebrities.Age;
+			celeb.Bio= celebrities.Bio;
+			celeb.Job = celebrities.Job;
+			celeb.Image = celebrities.Image;
+			celeb.BirthDate = celebrities.BirthDate;
+			celeb.Country = celebrities.Country;
 			celeb.Movies = celebrities.Movies;
-			//devamı var
-			c.Update(celebrities);
+			celeb.Series = celebrities.Series;
+			if (celebrities == null)
+			{
+				return NotFound();
+			}
+			c.Update(celeb);
 			c.SaveChanges();
 			return Ok();
 
@@ -58,6 +68,10 @@ namespace WebApplication5.Controllers
 		{
 			using var c = new Context();
 			var celebrities = c.Celebrities.Find(id);
+			if (celebrities == null)
+			{
+				return NotFound();
+			}
 			c.Remove(celebrities);
 			c.SaveChanges();
 			return Ok();
