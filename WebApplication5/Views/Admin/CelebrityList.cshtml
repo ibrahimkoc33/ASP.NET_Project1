@@ -1,0 +1,46 @@
+﻿@using EntityLayer.Concrete
+@model List<Celebrities>
+@{
+    ViewData["Title"] = "CelebrityList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="margin-left:22%">
+    <h2 class="text-center">CELEBRITIES</h2>
+    <a href="/Admin/CelebritiesAdd" class="btn btn-success">Yeni Kayıt</a>
+    <table class="table table-bordered mt-3">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Height</th>
+            <th>Bio</th>
+            <th>Job</th>
+            <th>BirthDate</th>
+            <th>Country</th>
+            <th>Image</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name </td>
+                <td>@item.Gender</td>
+                <td>@item.Age</td>
+                <td>@item.Height</td>
+                <td>@item.Bio</td>
+                <td>@item.Job</td>
+                <td>@item.BirthDate</td>
+                <td>@item.Country</td>
+                <td>@item.Image</td>
+                <td><a href="/Admin/CelebrityGet/@item.Id" class="btn btn-primary">Güncelle</a></td>
+                <td>
+                    <a href="/Admin/CelebritiesRemove/@item.Id" class="btn btn-danger"
+                       onclick="return confirm('Bu kullanıcıyı silmek istediğinizden emin misiniz?')">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

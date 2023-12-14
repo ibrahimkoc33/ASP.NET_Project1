@@ -1,0 +1,49 @@
+﻿@using EntityLayer.Concrete
+@model List<Serie>
+@{
+    ViewData["Title"] = "SerieList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="margin-left:22%">
+    <h2 class="text-center">SERIES</h2>
+    <a href="/Admin/SeriesAdd" class="btn btn-success">Yeni Kayıt</a>
+    <table class="table table-bordered mt-3">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Cast</th>
+            <th>Image</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>Scenarist</th>
+            <th>Star</th>
+            <th>Overview</th>
+            <th>Date</th>
+            <th>Season</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name </td>
+                <td>@item.Cast</td>
+                <td>@item.Image</td>
+                <td>@item.Genre</td>
+                <td>@item.Director</td>
+                <td>@item.Scenarist</td>
+                <td>@item.Star</td>
+                <td>@item.Overview</td>
+                <td>@item.Date</td>
+                <td>@item.Season</td>
+                <td><a href="/Admin/SerieGet/@item.Id" class="btn btn-primary">Güncelle</a></td>
+                <td>
+                    <a href="/Admin/SerieRemove/@item.Id" class="btn btn-danger"
+                       onclick="return confirm('Bu kullanıcıyı silmek istediğinizden emin misiniz?')">Sil</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

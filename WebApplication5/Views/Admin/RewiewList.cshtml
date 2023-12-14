@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model List<Rewiew>
+@{
+    ViewData["Title"] = "RewiewList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="margin-left:22%">
+    <h2 class="text-center">REWIEWS</h2>
+    <a href="/Admin/RewiewsAdd" class="btn btn-success">Yeni Kayıt</a>
+    <table class="table table-bordered mt-3">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Writer</th>
+            <th>Star</th>
+            <th>Date</th>
+            <th>MovieId</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Description </td>
+                <td>@item.Writer</td>
+                <td>@item.Star</td>
+                <td>@item.Date</td>
+                <td>@item.MovieId</td>
+                <td><a href="/Admin/RewiewGet/@item.Id" class="btn btn-primary">Güncelle</a></td>
+                <td>
+                    <a href="/Admin/RewiewRemove/@item.Id" class="btn btn-danger"
+                       onclick="return confirm('Bu kullanıcıyı silmek istediğinizden emin misiniz?')">Sil</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

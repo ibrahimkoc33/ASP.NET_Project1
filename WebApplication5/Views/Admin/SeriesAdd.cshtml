@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Serie
+@{
+    ViewData["Title"] = "SeriesAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin-left:22%">
+    <h1>New Serie</h1>
+
+    @using (Html.BeginForm("SerieAdd", "Admin", FormMethod.Post))
+    {
+        @Html.LabelFor(x=>x.Id)
+        @Html.TextBoxFor(x=>x.Id,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Name)
+        @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Genre)
+        @Html.TextBoxFor(x=>x.Genre,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Cast)
+        @Html.TextBoxFor(x=>x.Cast,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Director)
+        @Html.TextBoxFor(x=>x.Director,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Scenarist)
+        @Html.TextBoxFor(x=>x.Scenarist,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Image)
+        @Html.TextBoxFor(x=>x.Image,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Star)
+        @Html.TextBoxFor(x=>x.Star,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Overview)
+        @Html.TextBoxFor(x=>x.Overview,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Date)
+        @Html.TextBoxFor(x=>x.Date,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Season)
+        @Html.TextBoxFor(x=>x.Season,new{@class="form-control"})
+
+        <button class="btn btn-success">Add</button>
+    }
+</div>
+

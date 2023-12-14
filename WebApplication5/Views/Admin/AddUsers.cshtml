@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewData["Title"] = "AddUsers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin-left:22%">
+    <h1>New User</h1>
+
+    @using (Html.BeginForm("AddUser", "Admin", FormMethod.Post))
+    {
+
+        @Html.LabelFor(x=>x.Name)
+        @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Username)
+        @Html.TextBoxFor(x=>x.Username,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Mail)
+        @Html.TextBoxFor(x=>x.Mail,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Password)
+        @Html.TextBoxFor(x=>x.Password,new{@class="form-control"})
+        <button class="btn btn-success">Add</button>
+    }
+</div>

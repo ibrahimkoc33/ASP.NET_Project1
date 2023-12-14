@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "CategoryGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin-left:22%">
+    <h1>Guncelle</h1>
+
+    @using (Html.BeginForm("CategoryUpdate", "Admin", FormMethod.Post))
+    {
+        @Html.LabelFor(x=>x.Id)
+        @Html.TextBoxFor(x=>x.Id,new{@class="form-control",@readonly="readonly"})
+
+        @Html.LabelFor(x=>x.Name)
+        @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.color)
+        @Html.TextBoxFor(x=>x.color,new{@class="form-control"})
+
+        <button class="btn btn-success">Güncelle</button>
+    }
+</div>

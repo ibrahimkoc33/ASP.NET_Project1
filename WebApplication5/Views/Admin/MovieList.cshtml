@@ -1,0 +1,46 @@
+﻿@using EntityLayer.Concrete
+@model List<Movie>
+@{
+    ViewData["Title"] = "MovieList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="margin-left:22%">
+    <h2 class="text-center">MOVIES</h2>
+    <a href="/Admin/MoviesAdd" class="btn btn-success">Yeni Kayıt</a>
+    <table class="table table-bordered mt-3">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Cast</th>
+            <th>Director</th>
+            <th>Image</th>
+            <th>Star</th>
+            <th>RunTime</th>
+            <th>Overview</th>
+            <th>Date</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name </td>
+                <td>@item.Cast</td>
+                <td>@item.Director</td>
+                <td>@item.Image</td>
+                <td>@item.Star</td>
+                <td>@item.RunTime</td>
+                <td>@item.Overview</td>
+                <td>@item.Date</td>
+                <td><a href="/Admin/MovieGet/@item.Id" class="btn btn-primary">Güncelle</a></td>
+                <td>
+                    <a href="/Admin/MovieRemove/@item.Id" class="btn btn-danger"
+                       onclick="return confirm('Bu kullanıcıyı silmek istediğinizden emin misiniz?')">Sil</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
