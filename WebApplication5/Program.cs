@@ -1,3 +1,5 @@
+using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,12 +9,18 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
 {
-    option.LoginPath = "/Login/Index";
+    option.LoginPath = "Account/Login";
     option.ExpireTimeSpan= TimeSpan.FromMinutes(5);
 });
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>(x =>
+{
+    x.Password.RequireUppercase = false;
+    x.Password.RequireNonAlphanumeric = false;
+}).AddEntityFrameworkStores<Context>();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplication5.Models;
@@ -13,12 +14,14 @@ namespace WebApplication5.Controllers
 	[Authorize]
 	public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+		private readonly ILogger<HomeController> _logger;
+		private readonly SignInManager<AppUser> _signInManager; // SignInManager'ı ekledik
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+		public HomeController(ILogger<HomeController> logger, SignInManager<AppUser> signInManager)
+		{
+			_logger = logger;
+			_signInManager = signInManager; // SignInManager'ı enjekte ettik
+		}
 
 		MovieManager mm = new MovieManager(new EFMovieRepository());
         UserManager um = new UserManager(new EFUserRepository());
@@ -40,9 +43,9 @@ namespace WebApplication5.Controllers
         }
 		public async Task<IActionResult> LogOut()
 		{
-			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-			return RedirectToAction("Index","Login");
+			//await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+			await _signInManager.SignOutAsync();
+			return RedirectToAction("Login", "Account");
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

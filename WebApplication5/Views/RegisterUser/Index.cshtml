@@ -1,0 +1,136 @@
+﻿@model UserSignUpViewModel
+@{
+    Layout = null;
+}
+@*
+<div>
+    <h3>Kayıt Ekranı</h3>
+    <form class="m-t" role="form" asp-action="Index">
+        <div class="form-group">
+            <input type="text" class="form-control" asp-for="@Model.Name" placeholder="Ad Soyad" required="" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="text" class="form-control" asp-for="@Model.Username" placeholder="Kullanıcı adı" required="" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="email" class="form-control" asp-for="@Model.Mail" placeholder="Email" required="" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="password" class="form-control" asp-for="@Model.Password" placeholder="Şifre" required="" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="password" class="form-control" asp-for="@Model.ConfirmPassword" placeholder="Şifre tekrar" required="" />
+        </div>
+        <br />
+    </form>
+    <button type="submit" class="btn btn-primary block full-width m-b">Kayıt ol</button>
+    <p class="text-muted text-center"><small>Bir hesabınız var mı?</small></p>
+    <a class="btn btn-sm btn-white btn-block" href="/Login/Index">Giriş Yap</a>
+</div>
+*@
+
+
+
+
+<div class="page-single">
+    <div class="wrapper">
+        <h2>Registration</h2>
+        @using (Html.BeginForm("Index", "RegisterUser", FormMethod.Post))
+        {
+            <div class="form-row">
+                <label for="validationCustom01">
+                    <h6>Name Surname:</h6>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    <span asp-validation-for="@Model.Name" class="text-danger" style="color: red;"></span>
+                </label>
+            </div>
+            <div class="form-row">
+                <label for="validationCustom02">
+                    <h6>Username:</h6>
+                    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                    <span asp-validation-for="@Model.Username" class="text-danger" style="color: red;"></span>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="email-2">
+                    <h6>Your Email:</h6>
+                    
+                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                    <span asp-validation-for="@Model.Mail" class="text-danger" style="color: red;"></span>
+                </label>
+            </div>
+            <div class="form-row">
+                <label for="password-2">
+                    <h6>Password:</h6>
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                    <span asp-validation-for="@Model.Password" class="text-danger" style="color: red;"></span>
+                </label>
+            </div>
+            <div class="form-row">
+                <label for="repassword-2">
+                    <h6>Re-type Password:</h6>
+                    @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control" })
+                    <span asp-validation-for="@Model.ConfirmPassword" class="text-danger" style="color: red;"></span>
+                </label>
+            </div>
+            <div class="row">
+                <button type="submit">Sign Up</button>
+            </div>
+            <div class="text-danger" style="color: red;"  asp-validation-summary="ModelOnly">
+            </div>
+        }
+    </div>
+</div>
+@*
+<div class="page-single">
+    <div class="wrapper">
+        <h2>Registration</h2>
+        <form action="/RegisterUser/Index" method="post">
+            <div class="form-row">
+                <label for="validationCustom01">
+                    <h6>Name Surname:</h6>
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                    <input type="text" class="form-control" name="Name" value="" />
+                </label>
+            </div>
+            <div class="form-row">
+                <label for="validationCustom02">
+                    <h6>Username:</h6>
+                    <input type="text" class="form-control" name="Username" value="" />
+                    <span class="text-danger">Hata Mesajı</span>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label for="email-2">
+                    <h6>Your Email:</h6>
+                    <span asp-validation-for="@Model.Mail" class="text-danger"></span>
+                    <input type="text" class="form-control" name="Mail" value="" />
+                </label>
+            </div>
+            <div class="form-row">
+                <label for="password-2">
+                    <h6>Password:</h6>
+                    <input type="password" class="form-control" name="Password" value="" />
+                    <span class="text-danger">Hata Mesajı</span>
+                </label>
+            </div>
+            <div class="form-row">
+                <label for="repassword-2">
+                    <h6>Re-type Password:</h6>
+                    <input type="password" class="form-control" name="ConfirmPassword" value="" />
+                    <span class="text-danger">Hata Mesajı</span>
+                </label>
+            </div>
+            <div class="row">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+*@
