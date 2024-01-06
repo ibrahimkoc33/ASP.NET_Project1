@@ -1,0 +1,17 @@
+﻿@using WebApplication5.Models
+@model RoleViewModel
+@{
+    ViewData["Title"] = "AddRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="margin-left:22%">
+    <h1>New Movie</h1>
+
+    @using (Html.BeginForm("AddRole", "AdminRol", FormMethod.Post))
+    {
+
+        @Html.LabelFor(x=>x.name)
+        @Html.TextBoxFor(x=>x.name,new{@class="form-control"})
+        <button class="btn btn-success">Add</button>
+    }
+</div>
