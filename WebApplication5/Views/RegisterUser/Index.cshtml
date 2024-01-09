@@ -2,6 +2,28 @@
 @{
     Layout = null;
 }
+<head>
+    <!-- Basic need -->
+    <title>Open Pediatrics</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <link rel="profile" href="#">
+
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+    <!-- Mobile specific meta -->
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone-no">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="~/template2/css/deneme.css">
+    <link rel="stylesheet" href="~/template2/css/plugins.css">
+    <link rel="stylesheet" href="~/template2/css/style.css">
+    @*<link rel="stylesheet" href="~/template2/css/style.css">*@
+
+</head>
 @*
 <div>
     <h3>Kayıt Ekranı</h3>
@@ -34,58 +56,50 @@
 *@
 
 
+<body>
 
-
-<div class="page-single">
-    <div class="wrapper">
-        <h2>Registration</h2>
+    <div class="log-form">
+        <h2>Kayıt Ol</h2>
         @using (Html.BeginForm("Index", "RegisterUser", FormMethod.Post))
         {
             <div class="form-row">
-                <label for="validationCustom01">
-                    <h6>Name Surname:</h6>
-                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                <label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Adınızı girin" })
                     <span asp-validation-for="@Model.Name" class="text-danger" style="color: red;"></span>
                 </label>
             </div>
             <div class="form-row">
-                <label for="validationCustom02">
-                    <h6>Username:</h6>
-                    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                <label>
+                    @Html.TextBoxFor(x => x.Username, new { @class = "form-control", placeholder = "Kullanıcı adınızı girin"  })
                     <span asp-validation-for="@Model.Username" class="text-danger" style="color: red;"></span>
                 </label>
             </div>
 
             <div class="form-row">
-                <label for="email-2">
-                    <h6>Your Email:</h6>
-                    
-                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                <label>
+                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", placeholder = "Mail adresi girin"  })
                     <span asp-validation-for="@Model.Mail" class="text-danger" style="color: red;"></span>
                 </label>
             </div>
             <div class="form-row">
-                <label for="password-2">
-                    <h6>Password:</h6>
-                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                <label>
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "Şifrenizi girin"  })
                     <span asp-validation-for="@Model.Password" class="text-danger" style="color: red;"></span>
                 </label>
             </div>
             <div class="form-row">
-                <label for="repassword-2">
-                    <h6>Re-type Password:</h6>
-                    @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control" })
+                <label>
+                    @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "Şifrenizi tekrar girin"   })
                     <span asp-validation-for="@Model.ConfirmPassword" class="text-danger" style="color: red;"></span>
                 </label>
             </div>
-            <div class="row">
-                <button type="submit">Sign Up</button>
-            </div>
-            <div class="text-danger" style="color: red;"  asp-validation-summary="ModelOnly">
+            <button type="submit" class="btn">Kayıt Ol</button>
+            <a class="forgot" href="#">Giriş Yap</a>
+            <div class="text-danger" style="color: red;" asp-validation-summary="ModelOnly">
             </div>
         }
     </div>
-</div>
+</body>
 @*
 <div class="page-single">
     <div class="wrapper">

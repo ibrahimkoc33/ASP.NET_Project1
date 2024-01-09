@@ -14,11 +14,35 @@
         @Html.LabelFor(x=>x.Name)
         @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})
 
+        @Html.LabelFor(x=>x.Cast)
+        @Html.TextBoxFor(x=>x.Cast,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Director)
+        @Html.TextBoxFor(x=>x.Director,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Scenarist)
+        @Html.TextBoxFor(x=>x.Scenarist,new{@class="form-control"})
+
         @Html.LabelFor(x=>x.Genre)
         @Html.TextBoxFor(x=>x.Genre,new{@class="form-control"})
 
-        @Html.LabelFor(x=>x.Cast)
-        @Html.TextBoxFor(x=>x.Cast,new{@class="form-control"})
+        @Html.LabelFor(x=>x.Image)
+        @Html.TextBoxFor(x=>x.Image,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Star)
+        @Html.TextBoxFor(x=>x.Star,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.RunTime)
+        @Html.TextBoxFor(x=>x.RunTime,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Overview)
+        @Html.TextAreaFor(x=>x.Overview,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.Date)
+        @Html.TextBoxFor(x=>x.Date,new{@class="form-control"})
+
+        @Html.LabelFor(x=>x.CategoryId)
+        @Html.TextBoxFor(x=>x.CategoryId,new{@class="form-control"})
         <button class="btn btn-success">Güncelle</button>
     }
 </div>

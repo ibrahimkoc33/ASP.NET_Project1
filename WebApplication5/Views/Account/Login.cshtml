@@ -1,151 +1,66 @@
 ﻿@model UserSignInViewModel
 @{
-	ViewData["Title"] = "Login";
-	Layout = "~/Views/Shared/MovieLayout.cshtml";
+    ViewData["Title"] = "Login";
+    Layout = null;
 }
 
 
 <!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7 no-js" lang="en-US">
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8 no-js" lang="en-US">
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
 
 <!-- userprofile14:04-->
 <head>
-	<!-- Basic need -->
-	<title>Open Pediatrics</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="">
-	<link rel="profile" href="#">
+    <!-- Basic need -->
+    <title>Open Pediatrics</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <link rel="profile" href="#">
 
-	<!--Google Font-->
-	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
-	<!-- Mobile specific meta -->
-	<meta name=viewport content="width=device-width, initial-scale=1">
-	<meta name="format-detection" content="telephone-no">
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+    <!-- Mobile specific meta -->
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone-no">
 
-	<!-- CSS files -->
-	<link rel="stylesheet" href="~/template2/css/plugins.css">
-	<link rel="stylesheet" href="~/template2/css/style.css">
+    <!-- CSS files -->
+    <link rel="stylesheet" href="~/template2/css/deneme.css">
+    <link rel="stylesheet" href="~/template2/css/plugins.css">
+    <link rel="stylesheet" href="~/template2/css/style.css">
+    @*<link rel="stylesheet" href="~/template2/css/style.css">*@
 
 </head>
 <body>
-	<div class="page-single">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	<div class="page-single">
-		<div class="container">
-			<div class="row ipad-width">
-				<div class="wrapper">
-					<h2>Registration</h2>
-					@using (Html.BeginForm("Login", "Account", FormMethod.Post))
-					{
-						<div class="form-row">
-							<label for="validationCustom02">
-								<h6>Username:</h6>
-								<input type="text" class="form-control" asp-for="@Model.username" id="username-2" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
-							</label>
-						</div>
-						<div class="form-row">
-							<label for="password-2">
-								<h6>
-									Password:
-								</h6>
-								<input type="password" class="form-control" asp-for="@Model.password" id="password-2" placeholder="" required="required" />
-							</label>
-						</div>
-						<div class="row">
-							<button type="submit">sign in</button>
-						</div>
-						@if (@ViewData["ValidateMessage"] != null)
-						{
-							<br />
-							<br>
-							<h6>@ViewData["ValidateMessage"]</h6>
-						}
-					}
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- footer section-->
-	<footer class="ht-footer">
-		<div class="container">
-			<div class="flex-parent-ft">
-				<div class="flex-child-ft item1">
-					<a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
-					<p>
-						5th Avenue st, manhattan<br>
-						New York, NY 10001
-					</p>
-					<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
-				</div>
-				<div class="flex-child-ft item2">
-					<h4>Resources</h4>
-					<ul>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Blockbuster</a></li>
-						<li><a href="#">Contact Us</a></li>
-						<li><a href="#">Forums</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Help Center</a></li>
-					</ul>
-				</div>
-				<div class="flex-child-ft item3">
-					<h4>Legal</h4>
-					<ul>
-						<li><a href="#">Terms of Use</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Security</a></li>
-					</ul>
-				</div>
-				<div class="flex-child-ft item4">
-					<h4>Account</h4>
-					<ul>
-						<li><a href="#">My Account</a></li>
-						<li><a href="#">Watchlist</a></li>
-						<li><a href="#">Collections</a></li>
-						<li><a href="#">User Guide</a></li>
-					</ul>
-				</div>
-				<div class="flex-child-ft item5">
-					<h4>Newsletter</h4>
-					<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
-					<form action="#">
-						<input type="text" placeholder="Enter your email...">
-					</form>
-					<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
-				</div>
-			</div>
-		</div>
-		<div class="ft-copyright">
-			<div class="ft-left">
-				<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
-			</div>
-			<div class="backtotop">
-				<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
-			</div>
-		</div>
-	</footer>
-	<!-- end of footer section-->
-
-	<script src="~/template2/js/jquery.js"></script>
-	<script src="~/template2/js/plugins.js"></script>
-	<script src="~/template2/js/plugins2.js"></script>
-	<script src="~/template2/js/custom.js"></script>
+    <div class="log-form">
+        <h2>Giriş</h2>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <div class="form-row">
+                <label>
+                    <input type="text" title="Kullanıcı adı" placeholder="Kullanıcı adı" asp-for="@Model.username"  required="required" />
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <input type="password" title="Password" placeholder="Şifre" asp-for="@Model.password" id="password-2" required="required" />
+                </label>
+            </div>
+            <button type="submit" class="btn">Giriş Yap</button>
+            <a class="forgot" href="#">Şifrenizi mi unuttunuz?</a>
+            @if (@ViewData["ValidateMessage"] != null)
+            {
+                <br />
+                <br>
+                <h6>@ViewData["ValidateMessage"]</h6>
+            }
+        }
+    </div><!--end log form -->
+    </div>
+    <script src="~/template2/js/jquery.js"></script>
+    <script src="~/template2/js/plugins.js"></script>
+    <script src="~/template2/js/plugins2.js"></script>
+    <script src="~/template2/js/custom.js"></script>
 </body>
 
 <!-- userprofile14:04-->

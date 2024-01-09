@@ -56,11 +56,10 @@
 						<img src=@item.Image alt="">
 						<div class="movie-btn">
 							<div class="btn-transform transform-vertical red">
-								<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
+								<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Fragmanı İzle</a></div>
 								<div><a href="https://www.youtube.com/embed/o-0hcF97wy0" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
 							</div>
 							<div class="btn-transform transform-vertical">
-								<div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a></div>
 								<div><a href="#" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
 							</div>
 						</div>
@@ -70,9 +69,9 @@
 					<div class="movie-single-ct main-content">
 						<h1 class="bd-hd">@item.Name <span>@item.Date</span></h1>
 						<div class="social-btn">
-							<a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
+							<a href="#" class="parent-btn"><i class="ion-heart"></i> Favoriye Ekle</a>
 							<div class="hover-bnt">
-								<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
+								<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>paylaş</a>
 								<div class="hvr-item">
 									<a href="#" class="hvr-grow"><i class="ion-social-facebook"></i></a>
 									<a href="#" class="hvr-grow"><i class="ion-social-twitter"></i></a>
@@ -86,11 +85,11 @@
 								<i class="ion-android-star"></i>
 								<p>
 									<span>@item.Star</span> /10<br>
-									<span class="rv">56 Reviews</span>
+									<span class="rv">5 Yorum</span>
 								</p>
 							</div>
 							<div class="rate-star">
-								<p>Rate This Movie:  </p>
+								<p>Filmi Puanla:  </p>
 									@{
 										var i = 1;
 										while (i < item.Star)
@@ -120,43 +119,18 @@
 						<div class="movie-tabs">
 							<div class="tabs">
 								<ul class="tab-links tabs-mv">
-									<li class="active"><a href="#overview">Overview</a></li>
-									<li><a href="#reviews"> Reviews</a></li>
-									<li><a href="#cast">  Cast & Crew </a></li>
-									<li><a href="#media"> Media</a></li>
-									<li><a href="#moviesrelated"> Related Movies</a></li>
+									<li class="active"><a href="#overview">Genel Bakış</a></li>
+									<li><a href="#reviews"> Yorumlar</a></li>
+									<li><a href="#cast">  Oyuncu Kadrosu </a></li>
 								</ul>
 								<div class="tab-content">
 									<div id="overview" class="tab active">
 										<div class="row">
 											<div class="col-md-8 col-sm-12 col-xs-12">
 												<p>@item.Overview</p>
-												<div class="mvsingle-item ov-item">
-													<a class="img-lightbox" data-fancybox-group="gallery" href="~/template2/images/uploads/image11.jpg"><img src="~/template2/images/uploads/image1.jpg" alt=""></a>
-													<a class="img-lightbox" data-fancybox-group="gallery" href="~/template2/images/uploads/image21.jpg"><img src="~/template2/images/uploads/image2.jpg" alt=""></a>
-													<a class="img-lightbox" data-fancybox-group="gallery" href="~/template2/images/uploads/image31.jpg"><img src="~/template2/images/uploads/image3.jpg" alt=""></a>
-													<div class="vd-it">
-														<img class="vd-img" src="images/uploads/image4.jpg" alt="">
-														<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0"><img src="images/uploads/play-vd.png" alt=""></a>
-													</div>
-												</div>
 												<div class="title-hd-sm">
-													<h4>cast</h4>
-													<a href="#" class="time">Full Cast & Crew  <i class="ion-ios-arrow-right"></i></a>
-												</div>
-												<!-- movie cast -->
-												<div class="mvcast-item">
-													<div class="cast-it">
-														<div class="cast-left">
-															<img src="images/uploads/cast1.jpg" alt="">
-															<a href="#">Robert Downey Jr.</a>
-														</div>
-														<p>...  Robert Downey Jr.</p>
-													</div>
-												</div>
-												<div class="title-hd-sm">
-													<h4>User reviews</h4>
-													<a href="#" class="time">See All 56 Reviews <i class="ion-ios-arrow-right"></i></a>
+													<h4>Kullanıcı Yoruları</h4>
+														<a href="#reviews" class="time">Bütün yorumları görüntüle <i class="ion-ios-arrow-right"></i></a>
 												</div>
 												<!-- movie user review -->
 												<div class="mv-user-review-item">
@@ -173,53 +147,33 @@
 														<i class="ion-android-star"></i>
 														<i class="ion-android-star last"></i>
 													</div>
-													<p class="time">
-														17 December 2016 by <a href="#"> hawaiipierson</a>
-													</p>
-													<p>This is by far one of my favorite movies from the MCU. The introduction of new Characters both good and bad also makes the movie more exciting. giving the characters more of a back story can also help audiences relate more to different characters better, and it connects a bond between the audience and actors or characters. Having seen the movie three times does not bother me here as it is as thrilling and exciting every time I am watching it. In other words, the movie is by far better than previous movies (and I do love everything Marvel), the plotting is splendid (they really do out do themselves in each film, there are no problems watching it more than once.</p>
+													<p>This is by far one of my favorite movies from the MCU. The introduction of new Characters both good and bad also makes the movie more exciting. giving the characters more of a back story can also help audiences relate more to different characters better, and it connects a bond between the audience and actors or characters. </p>
 												</div>
 											</div>
 											<div class="col-md-4 col-xs-12 col-sm-12">
 												<div class="sb-it">
-													<h6>Director: </h6>
+														<h6>Yönetmen: </h6>
 													<p><a href="#">@item.Director</a></p>
 												</div>
 												<div class="sb-it">
-													<h6>Writer: </h6>
+													<h6>Yazar: </h6>
 													<p><a href="#">@item.Scenarist</a></p>
 												</div>
 												<div class="sb-it">
-													<h6>Stars: </h6>
+													<h6>Oyuncular: </h6>
 													<p><a href="#">@item.Cast</a></p>
 												</div>
 												<div class="sb-it">
-													<h6>Genres:</h6>
+													<h6>Kategori:</h6>
 													<p><a href="#">@item.Genre</p>
 												</div>
 												<div class="sb-it">
-													<h6>Release Date:</h6>
+													<h6>Çıkış Tarihi:</h6>
 													<p>@item.Date</p>
 												</div>
 												<div class="sb-it">
-													<h6>Run Time:</h6>
-													<p>@item.RunTime</p>
-												</div>
-												<div class="sb-it">
-													<h6>MMPA Rating:</h6>
-													<p>PG-13</p>
-												</div>
-												<div class="sb-it">
-													<h6>Plot Keywords:</h6>
-													<p class="tags">
-														<span class="time"><a href="#">superhero</a></span>
-														<span class="time"><a href="#">marvel universe</a></span>
-														<span class="time"><a href="#">comic</a></span>
-														<span class="time"><a href="#">blockbuster</a></span>
-														<span class="time"><a href="#">final battle</a></span>
-													</p>
-												</div>
-												<div class="ads">
-													<img src="images/uploads/ads1.png" alt="">
+													<h6>Süresi:</h6>
+													<p>@item.RunTime dk</p>
 												</div>
 											</div>
 										</div>
@@ -229,39 +183,22 @@
 											<div class="rv-hd">
 													@await Html.PartialAsync("~/Views/Rewiew/AddRewiewToMovie.cshtml")
 												
-												<a href="#" class="redbtn">Write Review</a>
+												<a href="#" class="redbtn">Yorum Yaz</a>
 											</div>
 											<div class="topbar-filter">
-												<p>Found <span>56 reviews</span> in total</p>
-												<label>Filter by:</label>
+												<p><span>7 Yorum</span></p>
+												<label>Şununla Filtrele:</label>
 												<select>
-													<option value="popularity">Popularity Descending</option>
-													<option value="popularity">Popularity Ascending</option>
-													<option value="rating">Rating Descending</option>
-													<option value="rating">Rating Ascending</option>
-													<option value="date">Release date Descending</option>
-													<option value="date">Release date Ascending</option>
+													<option value="popularity">Popülerliğe göre azalan</option>
+													<option value="popularity">Popülerliğe göre artan</option>
+														<option value="rating">Puana göre azalan</option>
+														<option value="rating">Puana göre  artan</option>
+														<option value="date">Çıkış tarihine göre azalan</option>
+														<option value="date">Çıkış tarihine göre date artan</option>
 												</select>
 											</div>
 												@await Component.InvokeAsync("RewiewListByMovie",new {id =ViewBag.i})
 												@*@await Html.PartialAsync("~/Views/Rewiew/RewiewList.cshtml")*@
-											<div class="topbar-filter">
-												<label>Reviews per page:</label>
-												<select>
-													<option value="range">5 Reviews</option>
-													<option value="saab">10 Reviews</option>
-												</select>
-												<div class="pagination2">
-													<span>Page 1 of 6:</span>
-													<a class="active" href="#">1</a>
-													<a href="#">2</a>
-													<a href="#">3</a>
-													<a href="#">4</a>
-													<a href="#">5</a>
-													<a href="#">6</a>
-													<a href="#"><i class="ion-arrow-right-b"></i></a>
-												</div>
-											</div>
 										</div>
 									</div>
 									<div id="cast" class="tab">
